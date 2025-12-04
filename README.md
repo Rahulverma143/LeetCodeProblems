@@ -12,7 +12,7 @@ The goal of this repository is to:
 
 - Track my progress on LeetCode.
 - Write clean, well-documented solutions.
-- Improve my problem-solving skills in various programming languages (mainly Python, but may include others like JavaScript or C++).
+- Improve my problem-solving skills in various programming languages (mainly JAVA, but may include others like DSA or JavaScript).
 - Build a helpful reference for myself and others.
 
 ---
