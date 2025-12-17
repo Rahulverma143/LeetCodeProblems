@@ -1,25 +1,18 @@
 class Solution {
     public int[] findErrorNums(int[] nums) {
-
-        int n = nums.length;
-        int[] freq = new int[n + 1]; 
-        for (int i = 0; i < nums.length; i++) {
-            int x = nums[i]; 
-            freq[x]++;   
+        int[] ans = new int[2];
+        Arrays.sort(nums);
+        HashSet<Integer> set = new HashSet<>();
+        for(int i : nums){
+            if(set.contains(i))
+                ans[0] = i;
+            else
+                set.add(i);
         }
-
-        int duplicate = -1;
-        int missing = -1;
-
-        for (int i = 1; i <= n; i++) {
-            if (freq[i] == 2) {
-                duplicate = i;     // number repeated twice
-            } 
-            else if (freq[i] == 0) {
-                missing = i;       // number not present
-            }
+        for(int i=1; i<=nums.length; i++){
+            if(!set.contains(i))
+                ans[1] = i;
         }
-
-        return new int[]{duplicate, missing};
+        return ans;
     }
 }
