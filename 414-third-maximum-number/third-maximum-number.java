@@ -3,16 +3,13 @@ class Solution {
         int firstMax = Integer.MIN_VALUE;
         int secondMax = Integer.MIN_VALUE;
         int thirdMax = Integer.MIN_VALUE;
-
         Arrays.sort(nums);
         int uniqueCount = 1;
-
         for (int i = 1; i < nums.length; i++) {
             if (nums[i] != nums[i - 1]) {
                 uniqueCount++;
             }
         }
-
         for(int i=0;i<nums.length;i++){
             if(nums[i]>firstMax){
                 thirdMax = secondMax;
@@ -31,3 +28,4 @@ class Solution {
         return thirdMax;
     }
 }
+
