@@ -1,15 +1,21 @@
 class Solution {
     public boolean isHappy(int n) {
-        if(n==1) return true;
-        int sum=0;
-        while(n!=0){
-            sum=sum+(int)Math.pow(n%10,2);
-            n/=10;
+        int slow = n;
+        int fast = fan(n);
+        while(slow != fast){
+            slow = fan(slow);
+            fast = fan(fan(fast));
         }
-        if(sum>4){
-            return isHappy(sum);
+        return slow == 1;
+    }
+
+    public int fan(int n){
+        int res = 0;
+        while(n > 0){
+            int yu = n%10;
+            res += yu * yu;
+            n = n / 10;
         }
-        if(sum==1) return true;
-        return false;
+        return res;
     }
 }
